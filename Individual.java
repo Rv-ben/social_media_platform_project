@@ -19,7 +19,7 @@ class Individual extends User{
     /**
      * Individual's posts
      */
-    private ArrayList<IndividualPost> post;
+    private ArrayList<Post> post;
 
     /**
      * Events individual is registered to 
@@ -52,7 +52,7 @@ class Individual extends User{
         super(userName, name, email, password, bio);
         this.birthDay = birthDay;
         this.bankInfo = bankInfo;
-        post = new ArrayList<IndividualPost>();
+        post = new ArrayList<Post>();
         donatedTo = new ArrayList<String>();
         registeredEvents = new ArrayList<String>();
     }
@@ -81,11 +81,11 @@ class Individual extends User{
      */
     public void donate(String companyName, int donation){
         String message = "I just donated " + donation+" to "+ companyName;
-        post.add(new IndividualPost(this.getUserName(), message, ""));
+        post.add(new Post(this.getUserName(), message, ""));
         donatedTo.add(companyName);
     }
 
-    public ArrayList<IndividualPost> getPost(){
+    public ArrayList<Post> getPost(){
         return post;
     }
     
@@ -94,19 +94,23 @@ class Individual extends User{
      */
     public void displayPage(){
 
-        System.out.println("---------------------------------------------------------------------------------------------");
-        System.out.println("Name: "+ this.getUserName()+" | Birthday: " + birthDay +" | Bio: "+this.getBio());
-
-        for(IndividualPost i : post)
+        System.out.println("_________________________________________________________________________________________");
+        System.out.println("|Name: "+ this.getUserName()+" | Birthday: " + birthDay +" | Bio: "+this.getBio()+"                    |");
+        System.out.println("_________________________________________________________________________________________");
+        System.out.println("_________________________________ Post _______________________________________________________");
+        for(Post i : post)
             i.displayPost();
-
+        System.out.println("_________________________________________________________________________________________");
+        System.out.println("___________________________________DONATED TO________________________________________________");
         if(eightTeen){
             System.out.println("Donated to:" + donatedTo.size() + " companies");
             for(String i : donatedTo)
                 System.out.print(i+" | ");
             System.out.println();
         }
-        System.out.println("Registered to:" + donatedTo.size() + " events");
+        System.out.println("_________________________________________________________________________________________");
+        System.out.println("___________________________________Registered to_______________________________________________");
+        System.out.println("Registered to:" + registeredEvents.size() + " events");
         for(String i : registeredEvents)
                 System.out.print(i+" | ");
                 

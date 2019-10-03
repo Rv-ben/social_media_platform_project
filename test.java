@@ -13,14 +13,25 @@ public class test {
         VolunteerEvent voltest = new VolunteerEvent("BeachClean up", "fs", "email", "password", "bio", e, "phoneNumber");
 
         donate(testIndiv, 10 , testOrg);
-        ArrayList<IndividualPost> feed = testIndiv.getPost();
-        for( IndividualPost i: feed){
-            i.displayPost();
-        }
+        // ArrayList<Post> feed = testIndiv.getPost();
+        // for(Post i: feed){
+        //     i.displayPost();
+        // }
+
+        registerToEvent(testIndiv, voltest);
+
+        //voltest.displayPage();
+        testIndiv.displayPage();
     }
 
     public static void donate(Individual donator, int donation ,Organization org){
         donator.donate(org.getUserName(),donation);
         org.addDonar(donator.getUserName(), donation);
     }
+
+    public static void registerToEvent(Individual participant, VolunteerEvent event){
+        event.registerUser(participant.getUserName());
+        participant.addRegisteredEvent(event.getUserName());
+    }
+    
 }

@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * Represents a post on a social media site
  */
-public abstract class Post{
+public class Post{
     
     /**
      * post message
@@ -21,9 +21,15 @@ public abstract class Post{
     private Date timePosted;
 
     /**
+     * username of person posting
+     */
+    private String userName;
+
+    /**
      * constructs Post Object using a message and image
      */
-    public Post(String message, String image){
+    public Post(String userName, String message, String image){
+        this.userName = userName;
         this.message = message;
         this.image = image;
         this.timePosted = new Date();
@@ -45,7 +51,14 @@ public abstract class Post{
         this.message = null;
     }
 
-    public abstract void displayPost();
+    /**
+     * displays post as string
+     */
+    public void displayPost(){
+        System.out.println("________________________________________________________________________________________________________");
+        System.out.println(this.userName+" @ "+this.getTimePosted().toString()+": "+ this.getMessage() + " "+ this.getImage());
+        System.out.println("________________________________________________________________________________________________________");
+    }
 
     /**
      * gets message

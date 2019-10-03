@@ -50,6 +50,6 @@ public class Event{
      * Display event info
      */
     public String toString(){
-        return name + " @ " + date.toString() + " " + location;
+        return " @ " + date.toString() + " " + location;
     }
 }

@@ -13,10 +13,17 @@ public class VolunteerPost extends Post{
      */
     private int numAttending;
 
-    VolunteerPost(String volunteerName, int numAttending, String message, String image){
-        super(message, image);
+    VolunteerPost(String volunteerName, int numAttending){
+        super("","","");
         this.volunteerName = volunteerName;
         this.numAttending = numAttending;
+    }
+
+    /**
+     * updates the amount of people attending
+     */
+    public void update(int attending){
+        this.numAttending = attending;
     }
 
     @Override

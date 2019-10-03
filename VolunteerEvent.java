@@ -21,9 +21,16 @@ public class VolunteerEvent extends User{
      */
     private ArrayList<String> resgisteredVolunteers;
 
-    private ArrayList<IndividualPost> messagePost;
+    /**
+     * list of post with a costum message
+     */
+    private ArrayList<Post> messagePost;
 
+    /**
+     * volunteer post keeps track of registered users
+     */
     private VolunteerPost post;
+
 
     VolunteerEvent(String userName, String name, String email, String password, String bio, 
                 Event event, String phoneNumber){
@@ -31,6 +38,8 @@ public class VolunteerEvent extends User{
         this.event = event;
         this.phoneNumber = phoneNumber;
         resgisteredVolunteers = new ArrayList<String>();
+        messagePost = new ArrayList<Post>();
+        post = generateFirstPost();
     }
 
     /**
@@ -57,18 +66,40 @@ public class VolunteerEvent extends User{
         return phoneNumber;
     }
 
-    public void generateFirstPost(){
-        String message = "NEW VOLUNTEER EVENT: "+ this.getUserName() + "Join us!!!";
+    /**
+     * Creates an initial post
+     */
+    private VolunteerPost generateFirstPost(){
+        return  new VolunteerPost(this.getUserName(), resgisteredVolunteers.size());
     }
 
+    /**
+     * adds a post with custom message
+     * @param message String Object 
+     * @param image String Object
+     */
+    public void post(String message, String image){
+        messagePost.add(new Post(this.getUserName(), message, image));
+    }
+
+    /**
+     * resgisters a person to an event
+     */
+    public void registerUser(String userName){
+        resgisteredVolunteers.add(userName);
+        post.update(resgisteredVolunteers.size());
+    }
+
+
     public void displayPage(){
-        System.out.println(event.toString());
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println(this.getUserName()+ " "+ event.toString());
         System.out.println("Contact Number: "+ phoneNumber);
         System.out.println("----------------------------Registered Users-------------------------");
         
-        
         for(String i : resgisteredVolunteers){
-            System.out.print(i+"\n");
+            System.out.print(i+" ");
         }
+        System.out.println("----------------------------------------------------------------------");
     }
 }

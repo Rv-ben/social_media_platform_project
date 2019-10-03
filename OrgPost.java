@@ -19,7 +19,7 @@ public class OrgPost extends Post{
     private int moneyDonated;
 
     OrgPost(String orgName, String userName, int moneyDonated){
-        super(null, null);
+        super("","","");
         this.orgName = orgName;
         this.userName = userName;
         this.moneyDonated = moneyDonated;
