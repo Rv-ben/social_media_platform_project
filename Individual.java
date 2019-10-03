@@ -36,6 +36,11 @@ class Individual extends User{
      */
     private boolean eightTeen;
 
+    Individual(String userName, String name, String email ,String password, String bio){
+
+        super(userName, name, email, password, bio);
+    }
+
     /**
      * Constucts an indiviual
      * @param userName individual's display name as String Object
@@ -46,7 +51,6 @@ class Individual extends User{
      * @param birthDay individual's bio as String Object
      * @param bankInfo individual's bankInfo as String Object
      */
-    
     Individual(String userName, String name, String email ,String password, String bio,String birthDay, String bankInfo){
 
         super(userName, name, email, password, bio);
@@ -61,10 +65,14 @@ class Individual extends User{
      * Edits banks info
      * @param bankInfo as String Object 
      */
-    public void changeBankInfo(String bankInfo){
+    public void setBankInfo(String bankInfo){
 
         this.bankInfo = bankInfo;
 
+    }
+
+    public void setBirthDay(String birthDay){
+        this.birthDay = birthDay;
     }
     
     /**

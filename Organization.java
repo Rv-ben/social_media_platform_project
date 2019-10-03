@@ -45,6 +45,10 @@ public class Organization extends User{
      */
     private ArrayList<Post> messagePost;
 
+    Organization(String userName, String name,String email, String password, String bio){
+        super(userName, name, email, password, bio);
+        }
+
     Organization(String userName, String name,String email, String password, String bio, String mailingAddress,
                     String phoneNumber, String taxNumber, String bankInfo){
 
@@ -57,6 +61,22 @@ public class Organization extends User{
         donationPost = new ArrayList<OrgPost>();
         messagePost = new ArrayList<Post>();
         money = 0;
+    }
+
+    public void setMailingAddress(String mailingAddress){
+        this.mailingAddress = mailingAddress;
+    }
+
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setTaxNumber(String taxNumber){
+        this.taxNumber = taxNumber;
+    }
+
+    public void setBankInfo(String bankInfo){
+        this.bankInfo = bankInfo;
     }
 
     /**
