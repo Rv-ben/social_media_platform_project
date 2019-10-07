@@ -66,9 +66,7 @@ class Individual extends User{
      * @param bankInfo as String Object 
      */
     public void setBankInfo(String bankInfo){
-
         this.bankInfo = bankInfo;
-
     }
 
     public void setBirthDay(String birthDay){
@@ -80,6 +78,8 @@ class Individual extends User{
      * @param eventName as String Objects
      */
     public void addRegisteredEvent(String eventName){
+        String message = "I just registered to "+ eventName;
+        post.add(new Post(this.getUserName(), message, ""));
         registeredEvents.add(eventName);
     }
 
@@ -91,6 +91,10 @@ class Individual extends User{
         String message = "I just donated " + donation+" to "+ companyName;
         post.add(new Post(this.getUserName(), message, ""));
         donatedTo.add(companyName);
+    }
+
+    public void post(String message, String image){
+        post.add(new Post(this.getUserName(), message, image));
     }
 
     public ArrayList<Post> getPost(){

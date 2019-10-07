@@ -36,14 +36,9 @@ public class Organization extends User{
     private ArrayList<String> donationList;
 
     /**
-     * List of all donation post
-     */
-    private ArrayList<OrgPost> donationPost;
-
-    /**
      * List of post with costum message
      */
-    private ArrayList<Post> messagePost;
+    private ArrayList<Post> post;
 
     Organization(String userName, String name,String email, String password, String bio){
         super(userName, name, email, password, bio);
@@ -58,8 +53,7 @@ public class Organization extends User{
         this.taxNumber = taxNumber;
         this.bankInfo = bankInfo;
         donationList = new ArrayList<String>();
-        donationPost = new ArrayList<OrgPost>();
-        messagePost = new ArrayList<Post>();
+        post = new ArrayList<Post>();
         money = 0;
     }
 
@@ -114,11 +108,11 @@ public class Organization extends User{
     }
 
     private void addDonationPost(OrgPost newPost){
-        donationPost.add(newPost);
+        post.add(newPost);
     }
 
-    public void addMessagePost(Post newPost){
-        messagePost.add(newPost);
+    public void post(String message, String image){
+        
     }
 
     public void displayPage(){
@@ -128,10 +122,7 @@ public class Organization extends User{
         System.out.println("Money Raised: "+ money);
 
         System.out.println("-----------------------Post------------------------------------------");
-        for(Post i : messagePost)
-            i.displayPost();
-        
-        for(OrgPost i : donationPost)
+        for(Post i : post)
             i.displayPost();
 
         System.out.println("-----------------------Supporters------------------------------------");

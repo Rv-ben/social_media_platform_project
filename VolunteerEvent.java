@@ -24,12 +24,7 @@ public class VolunteerEvent extends User{
     /**
      * list of post with a costum message
      */
-    private ArrayList<Post> messagePost;
-
-    /**
-     * volunteer post keeps track of registered users
-     */
-    private VolunteerPost post;
+    private ArrayList<Post> post;
 
     VolunteerEvent(String userName, String name, String email, String password, String bio){
         super(userName, name, email, password, bio);
@@ -41,8 +36,8 @@ public class VolunteerEvent extends User{
         this.event = event;
         this.phoneNumber = phoneNumber;
         resgisteredVolunteers = new ArrayList<String>();
-        messagePost = new ArrayList<Post>();
-        post = generateFirstPost();
+        post = new ArrayList<Post>();
+        post.add(generateFirstPost());
     }
 
     public void setEvent(Event event){
@@ -90,7 +85,7 @@ public class VolunteerEvent extends User{
      * @param image String Object
      */
     public void post(String message, String image){
-        messagePost.add(new Post(this.getUserName(), message, image));
+        post.add(new Post(this.getUserName(), message, image));
     }
 
     /**
@@ -98,7 +93,8 @@ public class VolunteerEvent extends User{
      */
     public void registerUser(String userName){
         resgisteredVolunteers.add(userName);
-        post.update(resgisteredVolunteers.size());
+        VolunteerPost poste = (VolunteerPost)post.get(0);
+        poste.update(resgisteredVolunteers.size());
     }
 
 

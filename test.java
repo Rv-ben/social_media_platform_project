@@ -4,12 +4,10 @@ import java.util.*;
 
 public class test {
     static Scanner input = new Scanner(System.in);
-    static ArrayList<Individual> individuals = new ArrayList<Individual>();
-    static ArrayList<Organization> organizations = new ArrayList<Organization>();
-    static ArrayList<VolunteerEvent> volunteerEvents = new ArrayList<VolunteerEvent>();
+    static ArrayList<User> users = new ArrayList<User>();
 
-    public static void main(String [] args){
-
+    public static void main(String [] args)throws Exception{
+        createUser();
     }
 
     public static void donate(Individual donator, int donation ,Organization org){
@@ -45,18 +43,21 @@ public class test {
         switch(choice.charAt(0)){
 
             case('I'):
-                individuals.add(new Individual(name,email,userName,password,bio));
-                createIndividual(individuals.get(individuals.size()-1));
+                Individual individ = new Individual(name,email,userName,password,bio);
+                users.add(individ);
+                createIndividual(individ);
                 break;
 
             case('O'):
-                organizations.add(new Organization(name,email,userName,password,bio));
-                createOrganization(organizations.get(organizations.size()-1));
+                Organization org = new Organization(name,email,userName,password,bio);
+                users.add(org);
+                createOrganization(org);
                 break;
 
             case('V'):
-                volunteerEvents.add(new VolunteerEvent(name,email,userName,password,bio));
-                createVolunteerEvent(volunteerEvents.get(volunteerEvents.size()-1));
+                VolunteerEvent vol = new VolunteerEvent(name,email,userName,password,bio);
+                users.add(vol);
+                createVolunteerEvent(vol);
                 break;
 
 
@@ -113,4 +114,11 @@ public class test {
 
     }
     
+    public static void actLikeUser(){
+
+    }
+
+    public static void displayAllUsers(){
+
+    }
 }

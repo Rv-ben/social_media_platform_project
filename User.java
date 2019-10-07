@@ -76,6 +76,8 @@ public abstract class User{
         return bio;
     }
 
+    public abstract void post(String message, String image);
+
     
 
 }

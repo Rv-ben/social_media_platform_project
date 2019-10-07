@@ -28,7 +28,7 @@ public class Post{
     /**
      * constructs Post Object using a message and image
      */
-    public Post(String userName, String message, String image){
+    Post(String userName, String message, String image){
         this.userName = userName;
         this.message = message;
         this.image = image;
@@ -38,7 +38,7 @@ public class Post{
     /**
      * constucts a Post Object using a message ONLY
      */
-    public Post(String message){
+    Post(String message){
         this.message = message;
         this.image = null;
     }
@@ -46,7 +46,7 @@ public class Post{
     /**
      * constucts a Post Object with innital conditions of null
      */
-    public Post(){
+    Post(){
         this.message = null;
         this.message = null;
     }
@@ -55,9 +55,7 @@ public class Post{
      * displays post as string
      */
     public void displayPost(){
-        System.out.println("________________________________________________________________________________________________________");
         System.out.println(this.userName+" @ "+this.getTimePosted().toString()+": "+ this.getMessage() + " "+ this.getImage());
-        System.out.println("________________________________________________________________________________________________________");
     }
 
     /**

@@ -3,10 +3,6 @@
  */
 public class OrgPost extends Post{
 
-    /**
-     * name of org posting
-     */
-    private String orgName;
 
     /**
      * name of donar
@@ -19,16 +15,15 @@ public class OrgPost extends Post{
     private int moneyDonated;
 
     OrgPost(String orgName, String userName, int moneyDonated){
-        super("","","");
-        this.orgName = orgName;
+        super(orgName,"","");
         this.userName = userName;
         this.moneyDonated = moneyDonated;
     }
     
-    
     @Override
     public void displayPost() {
-        System.out.println(orgName+" @ "+ this.getTimePosted().toString() + ":" + userName + " donated "+ moneyDonated + " "+this.getImage());
+        super.displayPost();
+        System.out.println(":" + userName + " donated "+ moneyDonated );
     }
     
 }

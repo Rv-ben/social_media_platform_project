@@ -28,7 +28,8 @@ public class VolunteerPost extends Post{
 
     @Override
     public void displayPost() {
-        System.out.println(volunteerName + " @ "+ this.getTimePosted() + ": "+ volunteerName + " now have " + numAttending + " attending" );
+        super.displayPost();
+        System.out.println(": "+ volunteerName + " now have " + numAttending + " attending" );
     }
 
 }
