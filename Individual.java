@@ -39,6 +39,9 @@ class Individual extends User{
     Individual(String userName, String name, String email ,String password, String bio){
 
         super(userName, name, email, password, bio);
+        post = new ArrayList<Post>();
+        donatedTo = new ArrayList<String>();
+        registeredEvents = new ArrayList<String>();
     }
 
     /**
@@ -94,7 +97,7 @@ class Individual extends User{
     }
 
     public void post(String message, String image){
-        post.add(new Post(this.getUserName(), message, image));
+        post.add(new Post("", message, image));
     }
 
     public ArrayList<Post> getPost(){

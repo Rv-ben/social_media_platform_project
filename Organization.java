@@ -104,15 +104,15 @@ public class Organization extends User{
     public void addDonar(String member, int donation){
         donationList.add(member);
         money += donation;
-        addDonationPost(new OrgPost(this.getUserName(), member, donation));
+        addDonationPost(member, donation);
     }
 
-    private void addDonationPost(OrgPost newPost){
-        post.add(newPost);
+    private void addDonationPost(String userName, int donation ){
+        post.add(new OrgPost(this.getUserName(), userName, donation));
     }
 
     public void post(String message, String image){
-        
+        post.add(new Post(this.getUserName(),message,image));
     }
 
     public void displayPage(){

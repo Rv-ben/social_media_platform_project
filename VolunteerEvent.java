@@ -37,7 +37,7 @@ public class VolunteerEvent extends User{
         this.phoneNumber = phoneNumber;
         resgisteredVolunteers = new ArrayList<String>();
         post = new ArrayList<Post>();
-        post.add(generateFirstPost());
+        post.add(new VolunteerPost(this.getUserName(), resgisteredVolunteers.size()));
     }
 
     public void setEvent(Event event){
@@ -70,13 +70,6 @@ public class VolunteerEvent extends User{
      */
     public String getContactNum(){
         return phoneNumber;
-    }
-
-    /**
-     * Creates an initial post
-     */
-    private VolunteerPost generateFirstPost(){
-        return  new VolunteerPost(this.getUserName(), resgisteredVolunteers.size());
     }
 
     /**
