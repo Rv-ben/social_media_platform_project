@@ -54,6 +54,8 @@ public class VolunteerEvent extends User{
      */
     public void addNewVolunteer(String memberName){
         resgisteredVolunteers.add(memberName);
+        VolunteerPost temp = (VolunteerPost)post.get(0);
+        temp.update(resgisteredVolunteers.size());
     }
 
     /**
