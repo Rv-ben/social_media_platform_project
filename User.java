@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Represents an abstract user
  */
@@ -78,6 +80,6 @@ public abstract class User{
 
     public abstract void post(String message, String image);
 
-    
+    public abstract ArrayList<Post> getPost();
 
 }

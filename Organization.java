@@ -42,7 +42,10 @@ public class Organization extends User{
 
     Organization(String userName, String name,String email, String password, String bio){
         super(userName, name, email, password, bio);
-        }
+        donationList = new ArrayList<String>();
+        post = new ArrayList<Post>();
+        money = 0;
+    }
 
     Organization(String userName, String name,String email, String password, String bio, String mailingAddress,
                     String phoneNumber, String taxNumber, String bankInfo){
@@ -113,6 +116,10 @@ public class Organization extends User{
 
     public void post(String message, String image){
         post.add(new Post(this.getUserName(),message,image));
+    }
+
+    public ArrayList<Post> getPost(){
+        return post;
     }
 
     public void displayPage(){

@@ -29,7 +29,7 @@ public class VolunteerPost extends Post{
     @Override
     public void displayPost() {
         super.displayPost();
-        System.out.println(": "+ volunteerName + " now have " + numAttending + " attending" );
+        System.out.print(volunteerName + " now have " + numAttending + " attending\n" );
     }
 
 }

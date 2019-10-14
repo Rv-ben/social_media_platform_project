@@ -28,6 +28,9 @@ public class VolunteerEvent extends User{
 
     VolunteerEvent(String userName, String name, String email, String password, String bio){
         super(userName, name, email, password, bio);
+        resgisteredVolunteers = new ArrayList<String>();
+        post = new ArrayList<Post>();
+        post.add(new VolunteerPost(this.getUserName(), resgisteredVolunteers.size()));
     }
 
     VolunteerEvent(String userName, String name, String email, String password, String bio, 
@@ -42,6 +45,7 @@ public class VolunteerEvent extends User{
 
     public void setEvent(Event event){
         this.event = event;
+        post.add(new VolunteerPost(this.getUserName(), resgisteredVolunteers.size()));
     }
 
     public void setContactNum(String contactNum){
@@ -90,6 +94,10 @@ public class VolunteerEvent extends User{
         resgisteredVolunteers.add(userName);
         VolunteerPost poste = (VolunteerPost)post.get(0);
         poste.update(resgisteredVolunteers.size());
+    }
+
+    public ArrayList<Post> getPost(){
+        return post;
     }
 
 

@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * Represents a post on a social media site
  */
-public class Post{
+public class Post implements Comparable<Post>{
     
     /**
      * post message
@@ -55,7 +55,7 @@ public class Post{
      * displays post as string
      */
     public void displayPost(){
-        System.out.println(this.userName+" @ "+this.getTimePosted().toString()+": "+ this.getMessage() + " "+ this.getImage());
+        System.out.print(this.userName+" @ "+this.getTimePosted().toString()+": "+ this.getMessage() + " "+ this.getImage());
     }
 
     /**
@@ -80,5 +80,10 @@ public class Post{
      */
     public Date getTimePosted(){
         return timePosted;
+    }
+
+    @Override
+    public int compareTo(Post otherPost){
+        return this.timePosted.compareTo(otherPost.getTimePosted());
     }
 }

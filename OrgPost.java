@@ -23,7 +23,7 @@ public class OrgPost extends Post{
     @Override
     public void displayPost() {
         super.displayPost();
-        System.out.println(":" + userName + " donated "+ moneyDonated );
+        System.out.print(userName + " donated "+ moneyDonated+"\n");
     }
     
 }
