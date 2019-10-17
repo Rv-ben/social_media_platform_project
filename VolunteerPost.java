@@ -1,5 +1,8 @@
 /**
  * represents a post made by a volunteer page
+ * @author Ruben Bramasco
+ * @version 1.0.0
+ * @since 10/12/2019
  */
 public class VolunteerPost extends Post{
 
@@ -26,6 +29,9 @@ public class VolunteerPost extends Post{
         this.numAttending = attending;
     }
 
+    /**
+     * adds register features to display
+     */
     @Override
     public void displayPost() {
         super.displayPost();

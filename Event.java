@@ -2,6 +2,9 @@ import java.util.Date;
 
 /**
  * Represents an event with time/date/location
+ * @author Ruben Bramasco
+ * @version 1.0.0
+ * @since 10/12/2019
  */
 public class Event{
 

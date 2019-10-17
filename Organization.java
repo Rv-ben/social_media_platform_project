@@ -2,6 +2,9 @@ import java.util.ArrayList;
 
 /**
  * Represents a user in the form of an oganization
+ * @author Ruben Bramasco
+ * @version 1.0.0
+ * @since 10/12/2019
  */
 public class Organization extends User{
 
@@ -40,6 +43,14 @@ public class Organization extends User{
      */
     private ArrayList<Post> post;
 
+    /**
+     * Constucts a new Organization given basic User Info
+     * @param userName  username as String Object 
+     * @param name name as String Object 
+     * @param email email as String Object
+     * @param password password as String Object
+     * @param bio bio as String Object
+     */
     Organization(String userName, String name,String email, String password, String bio){
         super(userName, name, email, password, bio);
         donationList = new ArrayList<String>();
@@ -47,6 +58,18 @@ public class Organization extends User{
         money = 0;
     }
 
+    /**
+     * Constucts a new Organization given basic User Info
+     * @param userName  username as String Object 
+     * @param name name as String Object 
+     * @param email email as String Object
+     * @param password password as String Object
+     * @param bio bio as String Object
+     * @param mailingAddresss mailingAddress as String Object
+     * @param phoneNumber phoneNumber as String Object
+     * @param taxNumber taxNumber as String Object
+     * @param bankInfo bankInfo as String Object
+     */
     Organization(String userName, String name,String email, String password, String bio, String mailingAddress,
                     String phoneNumber, String taxNumber, String bankInfo){
 
@@ -60,18 +83,34 @@ public class Organization extends User{
         money = 0;
     }
 
+    /**
+     * Sets mailing address
+     * @param mailingAddress as String Object
+     */
     public void setMailingAddress(String mailingAddress){
         this.mailingAddress = mailingAddress;
     }
 
+    /**
+     * sets Phone Number 
+     * @param phoneNumber as String Object
+     */
     public void setPhoneNumber(String phoneNumber){
         this.phoneNumber = phoneNumber;
     }
 
+    /**
+     * sets taxNumber
+     * @param taxNumber as String Object
+     */
     public void setTaxNumber(String taxNumber){
         this.taxNumber = taxNumber;
     }
 
+    /**
+     * sets bank info 
+     * @param bankInfo as String Object
+     */
     public void setBankInfo(String bankInfo){
         this.bankInfo = bankInfo;
     }
@@ -92,40 +131,72 @@ public class Organization extends User{
         return phoneNumber;
     }
 
+    /**
+     * gets tax number
+     * @return as String Object
+     */
     public String getTaxNumber(){
         return taxNumber;
     }
 
+    /**
+     * gets bankInfo
+     * @return as String Object
+     */
     public String getBankInfo(){
         return bankInfo;
     }
 
+    /**
+     * gets List of donars
+     * @return list of donars as ArrayList<String> 
+     */
     public ArrayList<String> getDonationList(){
         return donationList;
     }
 
+    /**
+     * adds a new donar
+     * @param member  new donar name as String Objectt
+     * @param donation amount of donation in dollars as Int
+     */
     public void addDonar(String member, int donation){
         donationList.add(member);
         money += donation;
         addDonationPost(member, donation);
     }
 
+    /**
+     * adds a new donation post
+     * @param userName username of donar as String Object 
+     * @param donation amount of donation in dollars as Int
+     */
     private void addDonationPost(String userName, int donation ){
         post.add(new OrgPost(this.getUserName(), userName, donation));
     }
 
+    /**
+     * post a message with message and image Location
+     */
     public void post(String message, String image){
         post.add(new Post(this.getUserName(),message,image));
     }
 
+    /**
+     * gets list of post
+     * @return list of post as ArrayList<Post>
+     */
     public ArrayList<Post> getPost(){
         return post;
     }
 
+    /**
+     * Displays the org's page
+     */
     public void displayPage(){
         System.out.println("---------------------------------------------------------------------------------------------");
         System.out.println("Name: "+ this.getUserName()+" | Bio: "+this.getBio());
-
+        System.out.println("---------------------------------------------------------------------------------------------");
         System.out.println("Money Raised: "+ money);
 
         System.out.println("-----------------------Post------------------------------------------");

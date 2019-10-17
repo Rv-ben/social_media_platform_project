@@ -3,6 +3,9 @@ import java.util.ArrayList;
 
 /**
  * Respresents an individual user
+ * @author Ruben Bramasco
+ * @version 1.0.0
+ * @since 10/12/2019
  */
 class Individual extends User{
     
@@ -36,6 +39,14 @@ class Individual extends User{
      */
     private boolean eightTeen;
 
+    /**
+     * Constucts an indiviual
+     * @param userName individual's display name as String Object
+     * @param name individual's real name as String Object
+     * @param email individual's email as String Object
+     * @param password individual's password as String Object
+     * @param bio individual's bio as String Object
+     */
     Individual(String userName, String name, String email ,String password, String bio){
 
         super(userName, name, email, password, bio);
@@ -72,6 +83,10 @@ class Individual extends User{
         this.bankInfo = bankInfo;
     }
 
+    /**
+     * sets the users bday 
+     * @param birthDay birthdate as String Object
+     */
     public void setBirthDay(String birthDay){
         this.birthDay = birthDay;
     }
@@ -96,14 +111,39 @@ class Individual extends User{
         donatedTo.add(companyName);
     }
 
+    /**
+     * creates a new post given a message and imageLocation
+     * @param message message as String Object
+     * @param image image as String Object
+     */
     public void post(String message, String image){
-        post.add(new Post("", message, image));
+        post.add(new Post(this.getUserName(), message, image));
     }
 
+    /**
+     * gets post list
+     * @return post as ArrayList<Post>
+     */
     public ArrayList<Post> getPost(){
         return post;
     }
+
+    /**
+     * gets UserName
+     * @return birthday as String Object
+     */
+    public String getBirthDay(){
+        return birthDay;
+    }
     
+    /**
+     * gets bankInfo
+     * @return bankInfo
+     */
+    public String getBankInfo(){
+        return bankInfo;
+    }
+
     /**
      * Displays the individual's page nicely
      */

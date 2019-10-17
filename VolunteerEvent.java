@@ -3,6 +3,9 @@ import java.util.Date;
 
 /**
  * Respesnts a user in the form of a Volunteering Event
+ * @author Ruben Bramasco
+ * @version 1.0.0
+ * @since 10/12/2019
  */
 public class VolunteerEvent extends User{
 
@@ -26,6 +29,14 @@ public class VolunteerEvent extends User{
      */
     private ArrayList<Post> post;
 
+    /**
+     * Constucts a new Volunteer Event given basic User Info
+     * @param userName  username as String Object 
+     * @param name name as String Object 
+     * @param email email as String Object
+     * @param password password as String Object
+     * @param bio bio as String Object
+     */
     VolunteerEvent(String userName, String name, String email, String password, String bio){
         super(userName, name, email, password, bio);
         resgisteredVolunteers = new ArrayList<String>();
@@ -33,6 +44,16 @@ public class VolunteerEvent extends User{
         post.add(new VolunteerPost(this.getUserName(), resgisteredVolunteers.size()));
     }
 
+    /**
+     * Constucts a new Organization given basic User Info
+     * @param userName  username as String Object 
+     * @param name name as String Object 
+     * @param email email as String Object
+     * @param password password as String Object
+     * @param bio bio as String Object
+     * @param event event as Event Object
+     * @param phoneNumber phoneNumber as String Object
+     */
     VolunteerEvent(String userName, String name, String email, String password, String bio, 
                 Event event, String phoneNumber){
         super(userName, name, email, password, bio);
@@ -43,11 +64,20 @@ public class VolunteerEvent extends User{
         post.add(new VolunteerPost(this.getUserName(), resgisteredVolunteers.size()));
     }
 
+    /**
+     * set Event 
+     * @param event as Event Object
+     */
     public void setEvent(Event event){
         this.event = event;
+        post.clear();
         post.add(new VolunteerPost(this.getUserName(), resgisteredVolunteers.size()));
     }
 
+    /**
+     * set phoneNumber
+     * @param contactNum as String Object
+     */
     public void setContactNum(String contactNum){
         this.phoneNumber = contactNum;
     }
@@ -96,11 +126,17 @@ public class VolunteerEvent extends User{
         poste.update(resgisteredVolunteers.size());
     }
 
+    /**
+     * gets list of Post
+     * @return list of post as ArrayList<Post>
+     */
     public ArrayList<Post> getPost(){
         return post;
     }
 
-
+    /**
+     * display's volunteer page
+     */
     public void displayPage(){
         System.out.println("----------------------------------------------------------------------");
         System.out.println(this.getUserName()+ " "+ event.toString());

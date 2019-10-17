@@ -2,6 +2,9 @@ import java.util.*;
 
 /**
  * Represents a post on a social media site
+ * @author Ruben Bramasco
+ * @version 1.0.0
+ * @since 10/12/2019
  */
 public class Post implements Comparable<Post>{
     
@@ -82,6 +85,9 @@ public class Post implements Comparable<Post>{
         return timePosted;
     }
 
+    /**
+     * compares two post by date of creation
+     */
     @Override
     public int compareTo(Post otherPost){
         return this.timePosted.compareTo(otherPost.getTimePosted());

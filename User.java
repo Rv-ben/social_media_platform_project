@@ -2,6 +2,9 @@ import java.util.ArrayList;
 
 /**
  * Represents an abstract user
+ * @author Ruben Bramasco
+ * @version 1.0.0
+ * @since 10/12/2019
  */
 public abstract class User{
 
@@ -30,6 +33,14 @@ public abstract class User{
      */
     private String bio;
 
+    /**
+     * Constucts a new User given basic User Info
+     * @param userName  username as String Object 
+     * @param name name as String Object 
+     * @param email email as String Object
+     * @param password password as String Object
+     * @param bio bio as String Object
+     */
     User(String userName, String name, String email, String password, String bio){
         this.userName = userName;
         this.name = name;
@@ -78,8 +89,17 @@ public abstract class User{
         return bio;
     }
 
+    /**
+     * Gives the user the ablity to post
+     * @param message message of post as String Object
+     * @param image imageLocation as String Object
+     */
     public abstract void post(String message, String image);
 
+    /**
+     * gets a list of post from user
+     * @return list of post as ArrayList<Post>
+     */
     public abstract ArrayList<Post> getPost();
 
 }
